@@ -12,6 +12,8 @@ end
 function data_move:get_target(caster, moveId)
 	-----test---
 	local vo = EntityVo()
+	vo.hp = 10000
+	vo.id = 10
 	local ent = sLivedEntity(vo)
     return {ent}
 end

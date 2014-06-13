@@ -4,7 +4,7 @@ function sEntity:__init(entityVo)
     
     self.entityVo = entityVo
 
-    self.attr = {}
+    self.val = {}
 
     local mt = {}
     mt.__index = function(table, key)
@@ -15,7 +15,7 @@ function sEntity:__init(entityVo)
             self:setAttrValue(key, value)
         end
 
-    setmetatable(self.attr, mt)
+    setmetatable(self.val, mt)
 end
 
 ----------------
@@ -32,5 +32,8 @@ function sEntity:getAttrValue(key)
 end
 
 function sEntity:setAttrValue(key, value)
+    if(key == "hp") then
+        print("id:", self.entityVo.id, "cur hp:", self.entityVo[key], "after cut hp:", value)
+    end
     self.entityVo[key] = value
 end
