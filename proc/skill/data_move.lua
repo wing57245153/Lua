@@ -9,12 +9,14 @@ function data_move:get_all_move_code(moveId)
     return {{"normal_damage", 1.1, 2}}
 end
 
+local vo = EntityVo()
+vo.hp = 10000
+vo.id = 10
+local ent = sLivedEntity(vo)
+
 function data_move:get_target(caster, moveId)
 	-----test---
-	local vo = EntityVo()
-	vo.hp = 10000
-	vo.id = 10
-	local ent = sLivedEntity(vo)
+	
     return {ent}
 end
 
