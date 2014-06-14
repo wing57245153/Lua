@@ -47,6 +47,10 @@ end
 --前摇处理
 function skill_proc:do_skill_before_act(caster, skillId)
 	---send package
+
+    local before_act_time = data_skill:get_before_act_time(skillId) ---callback
+    --print("---------before_act_time--------------", before_act_time)
+
     self:begin_skill(caster, skillId, skill_common.SKILL_BEGIN_ACT)
 end
 
@@ -57,7 +61,7 @@ function skill_proc:do_skill_act( caster, skillId )
 
     if moveId ~= 0 then 
         --caster.curSkillId = skillId --设置了这个逻辑动作中所对应的技能
-        move_proc:check_do_move(caster, targets, moveId)
+        move_proc:check_do_move(caster, moveId)
         ------释放逻辑动作　设置技能ＣＤ
         --data_skill:set_skill_cd(caster, skillId)
         --data_skill:set_skill_mp(caster, skillId)
@@ -72,5 +76,8 @@ end
 ---后摇
 function skill_proc:do_skill_after_act(caster, skillId)
 	---send package
+    local after_act_time = data_skill:get_after_act_time(skillId) ---callback
+
+    print("---------after_act_time--------------", after_act_time)
     self:begin_skill(caster, skillId, skill_common.SKILL_AFTER_ACT)
 end

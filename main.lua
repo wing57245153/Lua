@@ -11,6 +11,7 @@ require "proc.skill.move_effect"
 require "proc.skill.data_move"
 require "proc.skill.move_proc"
 require "proc.skill.move_metic"
+require "proc.config.init"
 
 local function main()
 	local a = io.lines()
@@ -23,8 +24,8 @@ local function main()
     print(ent.val.id)
 
     local i = 0
-    while i < 10 do
-        skill_proc:begin_skill(ent, 10000)
+    while i < 1 do
+        skill_proc:begin_skill(ent, 2020101)
         i = i + 1
     end
 end

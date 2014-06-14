@@ -48,6 +48,11 @@ function move_proc:parse_do_move(code, codeValue, caster, allTargetList, moveId)
     for k, target in pairs(allTargetList) do
         if code == "normal_damage" then  ----普通攻击		
             move_effect:check_damage(target, caster, codeValue[2], codeValue[3], moveId, codeValue[4])
+
+        elseif code == "magic_damage" then ----魔法攻击
+            print(".....................magic_damage.....", codeValue[2])
+            move_effect:magic_damage(target, caster, codeValue[2], codeValue[3], moveId, codeValue[4])
+
         else
         end
     end
