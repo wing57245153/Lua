@@ -19,10 +19,17 @@ function sEntity:__init(entityVo)
 end
 
 ----------------
+function sEntity:finalize()
+end
+
 function sEntity:onEnterWorld()
 end
 
 function sEntity:onLeaveWorld()
+
+end
+
+function sEntity:update(dt)
 
 end
 

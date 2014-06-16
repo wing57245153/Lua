@@ -20,4 +20,7 @@ function EntityVo:initVo()
     self.perfect_def = 0
     self.hp_max = 0
 
+    self.x = 0
+    self.y = 0
+
 end
