@@ -1,5 +1,7 @@
 
 require "luaclass"
+require "utils.math.Vector2"
+require "utils.math.MathUtils"
 
 require "fms.BaseState"
 require "fms.IdleState"
@@ -26,7 +28,6 @@ require "proc.config.init"
 
 
 local function main()
-	local a = io.lines()
 
 	local vo = EntityVo()
     vo.id = 1000
@@ -49,6 +50,14 @@ local function main()
     ent:update()
 
     MsgDispatcher:getInstance():dispatchMsg(vo.id, vo.id, fms.message_type.idle2walk)
+
+
+    local v1 = Vector2(100,200)
+    local v2 = Vector2(200,300)
+    local v3 = v1 + v2
+    print("--v3:----", v3.x, v3.y)
+    local v4 = v3 * 10
+    print("--v4:----", v4.x, v4.y)
 
 end
 

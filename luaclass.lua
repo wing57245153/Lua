@@ -40,7 +40,9 @@ local function build_cClass(classname, super)
             --obj.__vtbl = vtbl
             --obj.__type = 'simple_object'
 
-            setmetatable(obj,{ __index= _class[class_type]})
+            setmetatable(obj,{ __index= _class[class_type], 
+                __add = _class[class_type].__add,
+                __mul = _class[class_type].__mul})
             do
                 local create
                 create = function(c,...)
