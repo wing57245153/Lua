@@ -59,13 +59,16 @@ local function main()
     local v4 = v3 * 10
     print("--v4:----", v4.x, v4.y)
 
-    local function testFun()
-        print("-----test coroutine--------")
+    local t = {}
+    t.b = 100
+    function t:testFun()
+        local a = 10
+        print("-----test coroutine--------", self.b)
         coroutine.yield(2)
-        print("-----after yield--------")
+        print("-----after yield--------", a)
     end
-
-    CoroutineManager:getInstance():startCoroutine(testFun)
+    --print(t:testFun())
+    CoroutineManager:getInstance():startCoroutine(t.testFun, t)
     TaskManager:getInstance():update(0.02)
     print("----------")
     TaskManager:getInstance():update(0.02)

@@ -15,13 +15,14 @@ function TaskManager:getInstance()
 	return instance
 end
 
-function TaskManager:createTask(func)
-	return TaskState(func)
+function TaskManager:createTask(func, obj)
+	return TaskState(func, obj)
 end
 
 
 function TaskManager:startCoroutine(coro, taskState)
 	local result, value = coroutine.resume(coro, taskState)
+	--print("first", result, value)
 	if result == true then
 		if value == 0 or value == nil then
 			value = 1
@@ -53,8 +54,9 @@ end
 ------------------------------------
 cClass.TaskState()
 
-function TaskState:__init(func)
+function TaskState:__init(func, obj)
 	self.coroutine = coroutine.create(func)
+	self.obj = obj
 end
 
 function TaskState:start()
@@ -76,7 +78,8 @@ function TaskState:CallWrapper()
 end
 
 function TaskState:moveNext()
-	local result, value = coroutine.resume(self.coroutine)
+	local result, value = coroutine.resume(self.coroutine, self.obj)
+	--print("TaskState", result, value)
 	self.current = value
 	return result
 end
