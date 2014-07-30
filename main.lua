@@ -25,7 +25,7 @@ require "proc.skill.move_proc"
 require "proc.skill.move_metic"
 require "proc.config.init"
 
-
+require "coro.__init"
 
 local function main()
 
@@ -58,6 +58,23 @@ local function main()
     print("--v3:----", v3.x, v3.y)
     local v4 = v3 * 10
     print("--v4:----", v4.x, v4.y)
+
+    local function testFun()
+        print("-----test coroutine--------")
+        coroutine.yield(2)
+        print("-----after yield--------")
+    end
+
+    CoroutineManager:getInstance():startCoroutine(testFun)
+    TaskManager:getInstance():update(0.02)
+    print("----------")
+    TaskManager:getInstance():update(0.02)
+    print("----------")
+    TaskManager:getInstance():update(0.02)
+    print("----------")
+    TaskManager:getInstance():update(0.02)
+    print("----------")
+    TaskManager:getInstance():update(0.02)
 
 end
 

@@ -77,7 +77,7 @@ function MathUtils:equationTwo(a1, b1, c1, a2, b2, c2)
 end
 
 AttackRangeType = {}
-AttackRangeType.ATTACK_RANGE_TYPE_NOTARGET = 0,
-AttackRangeType.ATTACK_RANGE_TYPE_FAN = 1,
-AttackRangeType.ATTACK_RANGE_TYPE_RECT = 2,
+AttackRangeType.ATTACK_RANGE_TYPE_NOTARGET = 0
+AttackRangeType.ATTACK_RANGE_TYPE_FAN = 1
+AttackRangeType.ATTACK_RANGE_TYPE_RECT = 2
 AttackRangeType.ATTACK_RANGE_TYPE_SELF_CIRCLE = 3
